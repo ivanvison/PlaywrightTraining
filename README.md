@@ -18,6 +18,10 @@ Thank you for getting to this point. This repository was created for a project t
 1. Installed [VS Code](https://code.visualstudio.com).
 2. Installed [NodeJS](https://nodejs.org).
 3. Added Environment Variables (see below for Windows 10 PRO x64).
+4. Create a folder > load in VS Code > open terminal and type `npm init playwright` this will download needed files.
+    - Select JavaScript (in my case)
+    - Folder name for tests: test
+    - GitHub Actions: true
 
 ### Setting up Environment Variables in Windows 10 PRO x64
 
@@ -31,3 +35,25 @@ Thank you for getting to this point. This repository was created for a project t
     - Variable Name = NODE_HOME
     - Variable Value = C:\Program Files\nodejs
 4. Ok > Ok
+
+## Notes from the training per section
+
+1. Setup & Basics
+```
+npx playwright test
+Runs the end-to-end tests.
+
+npx playwright test --project=chromium
+Runs the tests only on Desktop Chrome.
+
+npx playwright test tests\example.spec.js
+Runs the tests of a specific file.
+
+npx playwright test --debug
+Runs the tests in debug mode.
+```
+- Before every step we need to write the keyword 'await' and add async to the function
+- ()=> same as function() without names
+- Playwright runs automatically in headless mode
+- `npx playwright test --headed` to run in headed mode
+- test.only('title', async({page})) => {...} here .only will force the runner to only run this test in the file

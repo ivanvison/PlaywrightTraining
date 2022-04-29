@@ -1,0 +1,21 @@
+{
+  "name": "course",
+  "version": "1.0.0",
+  "description": "Thank you for getting to this point. This repository was created for a project to learn Playwright with JS. \"Playwright JS Automation Testing from Scratch with Framework\" from UDEMY. For this training the instructor also provided a 3hours basic training in JavaScript.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivanvison/PlaywrightTraining.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivanvison/PlaywrightTraining/issues"
+  },
+  "homepage": "https://github.com/ivanvison/PlaywrightTraining#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.21.1"
+  }
+}
