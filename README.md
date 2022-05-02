@@ -1,4 +1,4 @@
-Thank you for getting to this point. This repository was created for a project to learn Playwright with JS. "Playwright JS Automation Testing from Scratch with Framework" from UDEMY. For this training the instructor also provided a 3hours basic training in JavaScript. 
+Thank you for getting to this point. This repository was created for a project to learn Playwright with JS. "Playwright JS Automation Testing from Scratch with Framework" from UDEMY. For this training the instructor also provided a 3hours basic training in JavaScript. Trainer: Rahul Shetty.
 
 ## Topics Covered
 - Introduction
@@ -38,7 +38,7 @@ Thank you for getting to this point. This repository was created for a project t
 
 ## Notes from the training per section
 
-1. Setup & Basics
+### Section 2. Setup & Basics
 ```
 npx playwright test
 Runs the end-to-end tests.
@@ -56,4 +56,32 @@ Runs the tests in debug mode.
 - ()=> same as function() without names
 - Playwright runs automatically in headless mode
 - `npx playwright test --headed` to run in headed mode
-- test.only('title', async({page})) => {...} here .only will force the runner to only run this test in the file
+- `test.only('title', async({page})) => {...}` here .only will force the runner to only run this test in the file
+
+### Section 3. Playwright Basic Methods
+- Selectors CSS and XPATH
+- Rules to write CSS selectors
+- JS doesn't follow a process to run lines
+```
+If IF is present
+css -> tagname#id (or) #id
+
+If class attribute is present
+css -> tagname.class (or) .class
+
+Write css based on any attribute
+css -> [attribute='value']
+
+Write css with traversing from Parent to Child
+css -> parenttagname >> childtagname
+
+If needs to write the locator based on text
+text=''
+```
+
+### Section 4. Handling UI Components
+- Selectors CSS and XPATH
+- When action is performed inside () then the await must be inside with the location. 
+
+### Section 4. Playwright Inspectors, Trace Viewers & Codegen tools
+-
