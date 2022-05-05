@@ -97,7 +97,7 @@ test('UI Controls', async ({browser})=> {
 })
 
 /* Handling Windows */
-test.only('Windows Handle', async ({browser})=> {
+test('Windows Handle', async ({browser})=> {
     //Create context, one instance - fresh instance like incognito
     const context = await browser.newContext();
     const page = await context.newPage();

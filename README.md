@@ -83,5 +83,34 @@ text=''
 - Selectors CSS and XPATH
 - When action is performed inside () then the await must be inside with the location. 
 
-### Section 4. Playwright Inspectors, Trace Viewers & Codegen tools
--
+### Section 5. Playwright Inspectors, Trace Viewers & Codegen tools
+- Used for debugging
+- --debug
+- Explore can help inspect UI objects to generate selectors
+- Record and Playback
+    - `npx playwright codegen [website]`
+- Reporting with Screenshot
+    - Inside of config > Use
+        - Add: screenshot : 'on', trace : 'on',
+    - trace.playwright.dev
+
+### Section 6. E2E Web Automation
+- `await page.locator("h3:has-text(productName)")` another method to find elements
+
+### Section 7. Handling Web Dialogs, Frames & Events Listeners
+
+
+### Section 8. API Testing with Playwright and Build mix of Web & API Tests
+
+
+### Section 9. Session storage & Intercepting Network request/responses
+
+
+### Section 10. Perform Visual Testing with Playwright Algorithms
+
+
+### Section 11. Test Retries , Serial & Parallel execution & Tagging Tests in Playwright
+
+
+### Section 12. HTML & Allure Reporting & CI/CD Jenkins Integration
+

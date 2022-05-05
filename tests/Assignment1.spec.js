@@ -15,7 +15,7 @@ test('Register @ Client Page', async ({browser})=> {
     await page.locator('p:has-text("Register Here")').click();
     await page.locator("#firstName").type("Ivan");
     await page.locator("#lastName").type("Vison");
-    await page.locator("#userEmail").type("ivanvison@outlook.com");
+    await page.locator("#userEmail").type("ivanvison@outlook2.com");
     await page.locator("#userMobile").type("809-580-1111");
     await page.selectOption('[class*="custom-select"]', '2: Student');
     await page.locator("[value='Male']").click();
