@@ -97,10 +97,12 @@ text=''
 ### Section 6. E2E Web Automation
 - `await page.locator("h3:has-text(productName)")` another method to find elements
 
-### Section 7. Handling Web Dialogs, Frames & Events Listeners
-
-
 ### Section 8. API Testing with Playwright and Build mix of Web & API Tests
+- API will get the response, front will render the data and present
+- End points
+- Apps are driven by session cookies
+- Use token for multiple test cases instead of login
+- One test case will store the token
 
 
 ### Section 9. Session storage & Intercepting Network request/responses
