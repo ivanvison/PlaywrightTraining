@@ -106,6 +106,14 @@ text=''
 
 
 ### Section 9. Session storage & Intercepting Network request/responses
+- Method: storage state ==> JSON File
+- Login, save JSON, inject JSON on all test
+- New instance (context) pass the json
+- Storage happens at the context level, not at the page level
+- to Debug - package.json, under Debug, "Scripts" > "test" and pass the command
+    - Debug npm script mode (Shift Ctrl + P)
+    - when debugging increase timeout time
+
 
 
 ### Section 10. Perform Visual Testing with Playwright Algorithms
