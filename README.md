@@ -11,6 +11,8 @@ Thank you for getting to this point. This repository was created for a project t
 - API Testing with Playwright and Build mix of Web & API Tests
 - Session storage & Intercepting Network request/responses
 - Perform Visual Testing with Playwright Algorithms
+- Page Object Patterns & Data Driven Parameterization for Playwright Tests
+- Project Configurations & Config options for robust Framework design
 - Test Retries , Serial & Parallel execution & Tagging Tests in Playwright
 - HTML & Allure Reporting & CI/CD Jenkins Integration
 
@@ -113,14 +115,32 @@ text=''
 - to Debug - package.json, under Debug, "Scripts" > "test" and pass the command
     - Debug npm script mode (Shift Ctrl + P)
     - when debugging increase timeout time
-
-
+- Keep in mind each Endpoint and responses
+- Intercept response instead of deleting all data
+- Interception basically is using .route(). Url you want to intercept and continue to the url you want to redirect
+- page.route('**/*.css', route => route.abort()); any url 
+    - page.route('**/*.{css,jpg,png,jpeg}', route => route.abort());
+- page.on('request', request => console.log(request.url()));
+- page.on('response', request => console.log(response.url(), response.status()));
 
 ### Section 10. Perform Visual Testing with Playwright Algorithms
+- File to File comparison - Test to compare 2 screenshots
 
 
-### Section 11. Test Retries , Serial & Parallel execution & Tagging Tests in Playwright
+### Section 11. Page Object Patterns & Data Driven Parameterization for Playwright Tests
+- Test case should be wrapped in its own logic file
+- Login should be go in its own JS File
+- 
 
+### Section 12. Project Configurations & Config options for robust Framework design
+- 
+- 
+- 
 
-### Section 12. HTML & Allure Reporting & CI/CD Jenkins Integration
+### Section 13. Test Retries , Serial & Parallel execution & Tagging Tests in Playwright
+- 
+- 
+- 
+
+### Section 14. HTML & Allure Reporting & CI/CD Jenkins Integration
 

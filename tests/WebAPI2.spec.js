@@ -23,7 +23,6 @@ test.beforeEach( ()=> {
 test('Pull Titles', async ()=> {
     const page = await webContext.newPage();
     await page.goto("http://rahulshettyacademy.com/client");
-    await page.waitForLoadState('networkidle');
     const titles = await page.locator(".card-body b").allTextContents();
     console.log("-----------");
     console.log(titles);
@@ -34,9 +33,9 @@ test('Pull Titles', async ()=> {
 test('Pull Titles V2', async ()=> {
     const page = await webContext.newPage();
     await page.goto("http://rahulshettyacademy.com/client");
-    await page.waitForLoadState('networkidle');
     const titles = await page.locator(".card-body b").allTextContents();
     console.log("#*#*#*#*#*#*#*");
+    console.log(titles);
 
 });
 
@@ -48,7 +47,7 @@ test('Session Storage', async ()=> {
     const products = page.locator(".card-body");
     const productName = 'adidas original';
     const userEmail = "ivanvison@outlook.com";
-    
+
     const titles = await page.locator(".card-body b").allTextContents();
     console.log(titles);
 

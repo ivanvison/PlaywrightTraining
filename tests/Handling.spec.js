@@ -32,3 +32,19 @@ test('Handling Web Dialogs, Frames & Events Listeners', async ({page}) => {
 
     //await page.pause();
 })
+
+test('Screenshot & Visual comparison', async ({page}) => {
+    await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
+    console.log(await page.title());
+    await expect(page.locator("#displayed-text")).toBeVisible();
+    await page.locator("#displayed-text").screenshot({path: 'screenshot.png'});
+    await page.locator("#hide-textbox").click();
+    //await page.screenshot({path: 'screenshot.png'});
+
+    await expect(page.locator("#displayed-text")).toBeHidden();
+});
+
+test.only('Visual', async ({page}) => {
+    await page.goto("https://flightaware.com/");
+    expect(await page.screenshot()).toMatchSnapshot('landing.png');
+});
