@@ -1,34 +1,30 @@
+const {test, expect} = require('@playwright/test');
+
 class DashboardPage {
 
     constructor(page) {
         this.page = page;
-        this.products = page.locator(".card-body");
-        this.productsText = page.locator(".card-body b");
-        this.cart = page.locator("[routerlink*='cart']");
-
+        this.dashboardTitle = page.locator("h1:has-text('Dashboard')");
+        this.boxesText = page.locator(".small-box p");
+        this.clientMenuLink = page.locator(".main-sidebar >> text=Clients");
     }
 
-    async searchProductAddCart(productName) {
+    async validateDashboardTitle() {
         await this.page.waitForLoadState('networkidle');
-        const titles = await this.productsText.allTextContents();
-        console.log(titles);
-        const count = await this.products.count();
-        console.log(count);
-
-        for(let i = 0; i < count; ++i ) {
-            console.log(await this.products.nth(i).locator("b").textContent());
-            if(await this.products.nth(i).locator("b").textContent() === productName) {
-                //acc to cart
-                await this.products.nth(i).locator("text=Add To Cart").click();
-                break;
-            }
-        }
+        const bool = await this.dashboardTitle.isVisible();
+        expect(bool).toBeTruthy();
     }
 
-    async navigateToCart() {
-        await this.cart.click();
+    async getBoxesContent() {
+        const boxesTexts = await this.boxesText.allTextContents();
+        console.log(boxesTexts);
+        await this.page.waitForLoadState('networkidle');
+    }
+
+    async navigateToClientPage() {
+        await this.clientMenuLink.click();
     }
 
 }
 
-module.exports = {DashboardPage}
+module.exports = {DashboardPage};

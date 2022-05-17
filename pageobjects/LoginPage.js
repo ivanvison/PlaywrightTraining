@@ -2,17 +2,17 @@ class LoginPage {
 
     constructor(page) {
         this.page = page;
-        this.userEmail = page.locator("#userEmail");
-        this.password = page.locator("#userPassword");
-        this.signInButton = page.locator("[type='submit']");
+        this.userName = page.locator("#email");
+        this.password = page.locator("[type='password']");
+        this.signInButton = page.locator("[name='submit_button']");
     }
 
     async goTo() {
-        await this.page.goto("http://rahulshettyacademy.com/client");
+        await this.page.goto("http://demo.fusioninvoice.com/");
     }
 
-    async validLogin(userEmail,password) {
-        await this.userEmail.type(userEmail)
+    async validLogin(userName,password) {
+        await this.userName.type(userName)
         await this.password.type(password);
         await this.signInButton.click();
         await this.page.waitForLoadState('networkidle');

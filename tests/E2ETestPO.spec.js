@@ -2,7 +2,7 @@
 
 //Needed test annotation
 const {test, expect} = require('@playwright/test');
-const {POManager} = require('../pageobjects/POManager');
+const {POManager} = require('../OLDpageobjects/POManager');
 
 test('End 2 End testing', async ({page}) => {
 

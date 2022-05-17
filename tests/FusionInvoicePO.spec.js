@@ -2,41 +2,37 @@
 Decided to change the project test to Fusion Invoice. Login, validate, create customer, validate the creation in the list*/
 
 const {text, expect, default: test} = require('@playwright/test');
+const {POManager} = require('../pageobjects/POManager');
 
 test('Fusion Invoice Client creation', async ({page}) => {
-
+    const poManager = new POManager(page);
     const userName = "demo@fusioninvoice.com";
     const password = "demopass";
-    const url = "http://demo.fusioninvoice.com/"
-    const expectedClientName = "Wessdsdfsfex Pet Shop";
 
     //Login
-    await page.goto(url);
-    await page.locator("#email").type(userName);
-    await page.locator("[type='password']").type(password);
-    await page.locator("[name='submit_button']").click();
-    await page.waitForLoadState('networkidle');
-
+    const loginPage = poManager.getLoginPage();
+    await loginPage.goTo();
+    await loginPage.validLogin(userName,password);
+ 
     //Dashboard Validation
-    const dashboardTitle = await page.locator("h1:has-text('Dashboard')").isVisible();
-    expect(dashboardTitle).toBeTruthy();
-    const boxesText = await page.locator(".small-box p").allTextContents();
-    console.log(boxesText);
+    const dashboardPage = poManager.getDashboardPage();
+    await dashboardPage.validateDashboardTitle();
+    await dashboardPage.getBoxesContent();
 
     //Client Section and Validation
-    await page.locator(".main-sidebar >> text=Clients").click();
-    const clientsTitle = await page.locator("h1:has-text('Clients')").isVisible();
-    expect(clientsTitle).toBeTruthy();
+    await dashboardPage.navigateToClientPage();
+    const clientPage = poManager.getClientPage();
+    await clientPage.validateClientPageTitle();
+    await clientPage.navigateToNewClientPage();
 
-    await page.locator("table").waitFor();
-    const rows = await page.locator("table tr");
-    console.log("Results", await rows.count());
-    console.log(await page.locator('xpath=//td[3]').allTextContents());
-    console.log("--Iteration--");
-    /*for(let i = 0; i < await rows.count(); i++) {
-        const rowClientName = await rows.nth(i).locator('xpath=//td[3]').textContent();
-        console.log(rowClientName);
-    }*/
-    expect(await page.locator('xpath=//td[3]').allTextContents().includes(expectedClientName)).toBeTruthy();
+    //Add New Client
+    const newClientPage = poManager.getNewClientPage();
+    const randomName = newClientPage.generateRandomName();
+    await newClientPage.fillNewClientForm(randomName);
+    await dashboardPage.navigateToClientPage();
+
+    //Validate Created Client
+    const validateClient = poManager.getValidateClient();
+    await validateClient.clientNameValidation(randomName);
 
 });
