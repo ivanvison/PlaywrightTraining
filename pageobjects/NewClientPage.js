@@ -15,12 +15,12 @@ class NewClientPage {
         const randomIndex = Math.floor(Math.random() * clientName.length);
         const randomID = Math.floor(Math.random() * 99999) + 10000;
         const randomName = clientName[randomIndex]+" "+ randomID;
-        console.log("Random Name is: " + randomName);
+        console.log("Random Name is : " + randomName);
         return randomName;
     }
 
-    async fillNewClientForm() {
-        await this.companyName.type(this.selectedName);
+    async fillNewClientForm(randomName) {
+        await this.companyName.type(randomName);
         await this.companyType.selectOption('customer');
         await this.saveButton.click();
     }
