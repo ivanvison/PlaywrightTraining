@@ -27,12 +27,13 @@ test('Fusion Invoice Client creation', async ({page}) => {
 
     //Add New Client
     const newClientPage = poManager.getNewClientPage();
-    const randomName = newClientPage.generateRandomName();
+    const randomName = await newClientPage.generateRandomName();
     await newClientPage.fillNewClientForm(randomName);
     await dashboardPage.navigateToClientPage();
 
     //Validate Created Client
     const validateClient = poManager.getValidateClient();
     await validateClient.clientNameValidation(randomName);
+    await validateClient.printClientResults();
 
 });
