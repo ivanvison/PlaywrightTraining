@@ -1,5 +1,7 @@
 Thank you for getting to this point. This repository was created for a project to learn Playwright with JS. "Playwright JS Automation Testing from Scratch with Framework" from UDEMY. For this training the instructor also provided a 3hours basic training in JavaScript. Trainer: Rahul Shetty.
 
+Note: By section 11 I had to change the example being used for training. For some reason I was investing too much time troubleshooting the teacher's code on my end. I decided to take a project that had an online demo instance that I could use. I picked "Fusion Invoice". That demo resets every X amount of minutes so it made sense. I created the whole testing process for: Login, Random Dashboad Verification, Client list verification, New client creation and the validation of the created client. -- The purpose was to be able to continue with the training instead of troubleshooting. 
+
 ## Topics Covered
 - Introduction
 - Getting Started
