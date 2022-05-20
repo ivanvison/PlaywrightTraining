@@ -6,7 +6,7 @@ class ValidateClient {
         this.page = page;
         this.clientsTable = page.locator("tbody");
         this.rows = page.locator("tbody tr");
-        this.clientTable = page.locator("table").waitFor();
+        this.clientTable = page.locator("table");
         this.clientList = page.locator('xpath=//td[3]');
     }
 

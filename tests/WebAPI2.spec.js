@@ -40,7 +40,7 @@ test('Pull Titles V2', async ()=> {
 });
 
 /* Login Test*/
-test('Session Storage', async ()=> {
+test('@API Session Storage', async ()=> {
     const page = await webContext.newPage();
     await page.goto("http://rahulshettyacademy.com/client");
 

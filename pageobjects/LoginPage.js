@@ -1,3 +1,5 @@
+const {test, expect} = require('@playwright/test');
+
 class LoginPage {
 
     constructor(page) {

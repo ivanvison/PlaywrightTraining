@@ -1,5 +1,5 @@
 const {test, expect, request} = require('@playwright/test');
-const {APIUtils} =  require('./utils/APIUtils');
+const {APIUtils} =  require('../utils/APIUtils');
 const loginPayLoad = {userEmail: "ivanvison@outlook.com", userPassword: "Unicorn9"};
 const orderPayLoad = {orders:[{country: "Dominican Republic", productOrderedId: "6262e990e26b7e1a10e89bfa"}]};
 let response;
@@ -18,7 +18,7 @@ test.beforeEach( ()=> {
 });
 
 
-test('API Integration test', async ({page}) => {
+test('@API API Integration test', async ({page}) => {
 
     page.addInitScript(value => {
         window.localStorage.setItem('token',value);

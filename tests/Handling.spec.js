@@ -1,7 +1,7 @@
 //Needed test annotation
 const {test, expect} = require('@playwright/test');
 
-test('Handling Web Dialogs, Frames & Events Listeners', async ({page}) => {
+test('@Web Handling Web Dialogs, Frames & Events Listeners', async ({page}) => {
    
     await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
     console.log(await page.title());
@@ -27,13 +27,13 @@ test('Handling Web Dialogs, Frames & Events Listeners', async ({page}) => {
     const framesPage = await page.frameLocator("#courses-iframe");
     await framesPage.locator("li a[href*='lifetime-access']:visible").click()
     
-    const textCheck =  await framesPage.locator(".text h2").textContent();
+    const textCheck = await framesPage.locator(".text h2").textContent();
     console.log(textCheck.split(" ")[1]);
 
     //await page.pause();
 })
 
-test('Screenshot & Visual comparison', async ({page}) => {
+test('@Web Screenshot & Visual comparison', async ({page}) => {
     await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
     console.log(await page.title());
     await expect(page.locator("#displayed-text")).toBeVisible();
@@ -44,7 +44,7 @@ test('Screenshot & Visual comparison', async ({page}) => {
     await expect(page.locator("#displayed-text")).toBeHidden();
 });
 
-test.only('Visual', async ({page}) => {
+test('@Web Visual', async ({page}) => {
     await page.goto("https://flightaware.com/");
     expect(await page.screenshot()).toMatchSnapshot('landing.png');
 });

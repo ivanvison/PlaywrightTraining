@@ -2,22 +2,26 @@
 Decided to change the project test to Fusion Invoice. Login, validate, create customer, validate the creation in the list*/
 
 const {text, expect, default: test} = require('@playwright/test');
+const {customTest} = require('../utils/test-base');
 const {POManager} = require('../pageobjects/POManager');
+// JSON -> String -> JS Object
+const dataset = JSON.parse(JSON.stringify(require("../utils/fusioninvoiceTestData.json")));
 
-test('Fusion Invoice Client creation', async ({page}) => {
+// For data set (multiple test data) encapsule inside for-loop
+// ${data.userType} is no differentiate the test data from the Json... ` this quote type is important
+for(const data of dataset) {
+test(`Fusion Invoice Client creation ${data.userType}`, async ({page}) => {
     const poManager = new POManager(page);
-    const userName = "demo@fusioninvoice.com";
-    const password = "demopass";
 
     //Login
     const loginPage = poManager.getLoginPage();
     await loginPage.goTo();
-    await loginPage.validLogin(userName,password);
+    await loginPage.validLogin(data.userName,data.password);
  
     //Dashboard Validation
     const dashboardPage = poManager.getDashboardPage();
     await dashboardPage.validateDashboardTitle();
-    await dashboardPage.getBoxesContent();
+    await dashboardPage.getTimelineContent();
 
     //Client Section and Validation
     await dashboardPage.navigateToClientPage();
@@ -37,3 +41,20 @@ test('Fusion Invoice Client creation', async ({page}) => {
     await validateClient.printClientResults();
 
 });
+} //EO For-loop
+
+customTest('Login Using Custom Test', async ({page,testDataForLogin}) => {
+    const poManager = new POManager(page);
+
+    //Login
+    const loginPage = poManager.getLoginPage();
+    await loginPage.goTo();
+    await loginPage.validLogin(testDataForLogin.userName,testDataForLogin.password);
+
+    //<div class="alertify-notifier ajs-top ajs-center" xpath="1"><div class="ajs-message ajs-error ajs-visible">Invalid Credentials</div></div>
+    await page.waitForLoadState('networkidle');
+    if(await page.locator("text=Invalid Credentials").isVisible) {
+        console.log("Invalid Credentials")
+    }
+});
+

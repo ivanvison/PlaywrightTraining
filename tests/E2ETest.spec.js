@@ -10,7 +10,9 @@ test('End 2 End testing', async ({page}) => {
     const products = page.locator(".card-body");
     const productName = 'adidas original';
     const userEmail = "ivanvison@outlook.com";
-
+    
+    page.route('**', route => route.continue());
+    
     await page.goto("http://rahulshettyacademy.com/client");
     console.log(await page.title());
 

@@ -5,7 +5,7 @@ class DashboardPage {
     constructor(page) {
         this.page = page;
         this.dashboardTitle = page.locator("h1:has-text('Dashboard')");
-        this.boxesText = page.locator(".small-box p");
+        this.timelineText = page.locator(".timeline-body");
         this.clientMenuLink = page.locator(".main-sidebar >> text=Clients");
     }
 
@@ -15,9 +15,9 @@ class DashboardPage {
         expect(bool).toBeTruthy();
     }
 
-    async getBoxesContent() {
-        const boxesTexts = await this.boxesText.allTextContents();
-        console.log(boxesTexts);
+    async getTimelineContent() {
+        const timelineLatestText = await this.timelineText.first().textContent();
+        console.log(timelineLatestText);
         await this.page.waitForLoadState('networkidle');
     }
 

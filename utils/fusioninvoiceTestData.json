@@ -1,0 +1,12 @@
+[
+    {
+    "userType" : "Valid User",
+    "userName" : "demo@fusioninvoice.com",
+    "password" : "demopass"
+    },
+    {
+    "userType" : "Invalid User",
+    "userName" : "test@fusioninvoice.com",
+    "password" : "demopass"
+    }
+]

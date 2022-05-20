@@ -132,17 +132,44 @@ text=''
 ### Section 11. Page Object Patterns & Data Driven Parameterization for Playwright Tests
 - Test case should be wrapped in its own logic file
 - Login should be go in its own JS File
-- 
+- When using a JSON File to send test data: JSON -> String -> JS Object
+    - Driving the data test from external files
+- Parameterization w/ different data set
+    - Make JSON as an array
+    - For data set (multiple test data) encapsule inside for-loop
+    - ${data.userType} is no differentiate the test data from the Json... ` this quote type is important
+    - Fixture -> crate 
 
 ### Section 12. Project Configurations & Config options for robust Framework design
-- 
-- 
-- 
+- Run multiple configurtion files
+- Single file with Project array
+- Have to specify the project to run
 
 ### Section 13. Test Retries , Serial & Parallel execution & Tagging Tests in Playwright
-- 
-- 
-- 
+- Running in serial - Default
+- For parallel - workers 5 by default.
+- for tests inside one single file, pass the following parameter 
+    - test.describe.configure({mode:'parallel}) -- inside the test file, at the top
+    - serial mode, upon fail of a test, it will stop the rest of the test
+- Tagging:
+    - example test('@Web .... @API....
+    - npx playwright test --grep="@Web"
 
 ### Section 14. HTML & Allure Reporting & CI/CD Jenkins Integration
-
+- Install Allue Playwright >  npm i -D allure
+- Run partial test using allure: npx playwright test --grep="@Web" --reporter=line,allure-playwright
+- Generate Report: allure generate .\allure-results\ --clean
+- Open the report: allure open .\allure-report\
+- Issue related to "allure: The term 'allure' is not recognized as the name of a cmdlet
+    - Solution: https://www.npmjs.com/package/allure-commandline
+    - Command: npm install -g allure-commandline --save-dev
+- Issue related to scripts is disabled on this system... 
+    - Solution: Delete File C:\Users\Ivan\AppData\Roaming\npm\allure.ps1
+- Start Jenkins: java -jar jenkins.war -httpPort=9090
+    - New
+    - Title, Freestyle
+    - Description
+    - This project is parameterized (add Name and choices)
+    - Custom Path
+    - Build: Windows batch --> npm run "%Script%"
+    - Shell: npm run "$Script" (Shell)

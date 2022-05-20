@@ -28,6 +28,8 @@ const config = {
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+  //reporter: 'allure-playwright',
+  //reporter: [ ['allure-playwright', { outputFolder: 'allure-results' }] ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     browserName : 'chromium',

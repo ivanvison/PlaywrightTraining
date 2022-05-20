@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Thank you for getting to this point. This repository was created for a project to learn Playwright with JS. \"Playwright JS Automation Testing from Scratch with Framework\" from UDEMY. For this training the instructor also provided a 3hours basic training in JavaScript.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "regression": "npx playwright test",
+    "webTests": "npx playwright test --grep=@Web",
+    "APITests": "npx playwright test --grep=@API",
+    "safariNewConfig": "npx playwright test --config playwright.config1.js --project=safari"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ivanvison/PlaywrightTraining.git"
@@ -16,7 +21,8 @@
   },
   "homepage": "https://github.com/ivanvison/PlaywrightTraining#readme",
   "devDependencies": {
-    "@playwright/test": "^1.21.1",
+    "@playwright/test": "^1.22.1",
+    "allure-playwright": "^2.0.0-beta.16",
     "ffmpeg-static": "^5.0.0",
     "playwright-video": "^2.4.0"
   }

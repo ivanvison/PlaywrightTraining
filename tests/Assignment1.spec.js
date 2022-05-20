@@ -26,7 +26,7 @@ test('Register @ Client Page', async ({browser})=> {
 })
 
 /* Login Test*/
-test.only('Page Test', async ({browser})=> {
+test('Page Test', async ({browser})=> {
     //Create context, one instance - fresh instance like incognito
     const context = await browser.newContext();
     const page = await context.newPage();
